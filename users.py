@@ -56,7 +56,7 @@ class users(Resource):
         username = args['username']
         email = args['email']
         password = args['password']
-        dbuser = User(username, email, password)
+        dbuser = User(username, email, password, 0)
         db.session.add(dbuser)
         db.session.commit()
         return dbuser.id,201
