@@ -1,7 +1,8 @@
 # import Flask Script object
-from flask.ext.script import Manager, Server
+from flask_script import Manager, Server
 import main
 import models
+import users
 
 # Init manager object via app object
 manager = Manager(main.app)

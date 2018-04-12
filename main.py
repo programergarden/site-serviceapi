@@ -1,17 +1,15 @@
-from flask import Flask
+from flask import Flask, jsonify
 from config import DevelopConfig
+from flask_restful import Api
 
 app = Flask(__name__)
+api = Api(app)
 
-# Get the config from object of DecConfig
-# 使用 onfig.from_object() 而不使用 app.config['DEBUG'] 是因为这样可以加载 class DevConfig 的配置变量集合，而不需要一项一项的添加和修改。
 app.config.from_object(DevelopConfig)
 
-# 指定 URL='/' 的路由规则
-# 当访问 HTTP://server_ip/ GET(Default) 时，call home()
 @app.route('/')
-def home():
-    return '<h1>Hello World!</h1>'
+def index():
+    return '<h1>Welcome Programergarden API</h1><p>this is Programergarden.net api site,by python 3.4 flask</p>'
 
 if __name__ == '__main__':
     # Entry the application
